@@ -52,15 +52,26 @@ const Discipline = ({ selectedDocument }: DisciplineProps) => {
   return (
     <div className="flex-1 overflow-y-auto">
       <div className="p-6">
-        <div className="text-2xl text-gray-700 mb-6">DISCIPLINE MANAGEMENT</div>
+        <div className="text-2xl text-gray-700 mb-6 text-center">
+          DISCIPLINE MANAGEMENT
+        </div>
         <div className="flex space-x-4 mb-6 border-b">
-          <Button variant="ghost" className="text-gray-600 border-b-2 border-transparent hover:border-blue-500">
+          <Button
+            variant="ghost"
+            className="text-gray-600 border-b-2 border-transparent hover:border-blue-500"
+          >
             Home
           </Button>
-          <Button variant="ghost" className="text-gray-600 border-b-2 border-transparent hover:border-blue-500">
+          <Button
+            variant="ghost"
+            className="text-gray-600 border-b-2 border-transparent hover:border-blue-500"
+          >
             My Summary
           </Button>
-          <Button variant="ghost" className="text-gray-600 border-b-2 border-transparent hover:border-blue-500">
+          <Button
+            variant="ghost"
+            className="text-gray-600 border-b-2 border-transparent hover:border-blue-500"
+          >
             Employee Summary
           </Button>
         </div>
@@ -70,8 +81,12 @@ const Discipline = ({ selectedDocument }: DisciplineProps) => {
               <CardContent className="p-6">
                 <div className="flex justify-between items-start">
                   <div>
-                    <div className="text-gray-500 text-sm font-medium mb-2">{card.title}</div>
-                    <div className="text-3xl font-semibold text-gray-700">{card.count}</div>
+                    <div className="text-gray-500 text-sm font-medium mb-2">
+                      {card.title}
+                    </div>
+                    <div className="text-3xl font-semibold text-gray-700">
+                      {card.count}
+                    </div>
                   </div>
                   <div>{card.icon}</div>
                 </div>

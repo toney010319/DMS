@@ -10,14 +10,23 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import { DocumentType } from "@/lib/types";
-import { ChevronDown, CirclePower, FileLock2, FilePlus2, Gauge, MessageCircleQuestion } from "lucide-react";
-import { useNavigate, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
+import {
+  ChevronDown,
+  CirclePower,
+  FileLock2,
+  FilePlus2,
+  Gauge,
+  MessageCircleQuestion,
+} from "lucide-react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 interface AppSidebarProps {
   isDropdownOpen: boolean;
   setIsDropdownOpen: (value: boolean) => void;
-  setSelectedDocument: React.Dispatch<React.SetStateAction<DocumentType | null>>;
+  setSelectedDocument: React.Dispatch<
+    React.SetStateAction<DocumentType | null>
+  >;
 }
 
 interface MenuItem {
@@ -64,7 +73,10 @@ const items: MenuItem[] = [
   },
 ];
 
-export function AppSidebar({ isDropdownOpen, setIsDropdownOpen }: AppSidebarProps) {
+export function AppSidebar({
+  isDropdownOpen,
+  setIsDropdownOpen,
+}: AppSidebarProps) {
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -86,14 +98,18 @@ export function AppSidebar({ isDropdownOpen, setIsDropdownOpen }: AppSidebarProp
             <CirclePower className="w-6 h-6 text-white" />
           </div>
           <div>
-            <div className="text-sm font-medium text-white">ARVIN, BAUTISTA</div>
+            <div className="text-sm font-medium text-white mt-5">
+              ARVIN, BAUTISTA
+            </div>
             <div className="text-xs text-white">(SUPERVISOR)</div>
           </div>
         </div>
       </SidebarHeader>
       <SidebarContent className="bg-blue-600">
         <SidebarGroup className="text-white font-semibold text-xl">
-          <SidebarGroupLabel className="text-white font-semibold">DISCIPLINE MANAGEMENT SYSTEM</SidebarGroupLabel>
+          <SidebarGroupLabel className="text-white font-semibold">
+            DISCIPLINE MANAGEMENT SYSTEM
+          </SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {items.map((item) => (
@@ -129,7 +145,9 @@ export function AppSidebar({ isDropdownOpen, setIsDropdownOpen }: AppSidebarProp
                         <SidebarMenuButton
                           key={subItem.title}
                           onClick={() => handleSubItemClick(subItem.url)}
-                          className={cn(isItemActive(subItem.url) && "bg-blue-700")}
+                          className={cn(
+                            isItemActive(subItem.url) && "bg-blue-700"
+                          )}
                         >
                           {subItem.title}
                         </SidebarMenuButton>
