@@ -1,19 +1,19 @@
 import React from "react";
 
-const ComingSoon: React.FC = () => {
+const UnderMaintenance: React.FC = () => {
   return (
     <div className="flex items-center justify-center h-screen bg-white from-gray-800 via-gray-900 to-black text-white">
       <div className="text-center space-y-4">
         <h1 className="text-4xl md:text-6xl font-bold text-gray-900">
-          🚀 Coming Soon!
+          🛠️ Under Maintenance!
         </h1>
         <p className="text-lg md:text-xl text-gray-600">
-          Stay tuned for Report Incident Option. We are working hard to bring
-          you the best experience!
+          Report incident option is under maintenance. Please check back soon.
+          Thank you for your patience!
         </p>
       </div>
     </div>
   );
 };
 
-export default ComingSoon;
+export default UnderMaintenance;

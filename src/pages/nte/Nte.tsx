@@ -9,7 +9,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Calendar } from "lucide-react";
-import React from "react";
+import React, { useState } from "react";
 
 interface Step {
   id: number;
@@ -18,6 +18,10 @@ interface Step {
 }
 
 const Nte: React.FC = () => {
+  const [policyType, setPolicyType] = useState<string>("");
+  const [description, setDescription] = useState<string>("");
+  const [otherDescription, setOtherDescription] = useState<string>("");
+
   const steps: Step[] = [
     { id: 1, label: "Superior Input", isActive: true },
     { id: 2, label: "Employee Response", isActive: false },
@@ -30,13 +34,31 @@ const Nte: React.FC = () => {
     { id: 5, label: "1st Level Sup Signature", isActive: false },
     { id: 6, label: "2nd Level Sup Signature", isActive: false },
   ];
-  const descriptions = [
-    "Failure to Login/Logout",
+
+  const attendanceDescriptions = [
     "Tardiness",
     "Unauthorized/Unexcused Absence",
-    "NCNS",
-    "Critical - Unauthorized/Unexcused Absence/NCNS",
+    "No Call No Show (NCNS)",
   ];
+
+  const cocdDescriptions = [
+    "Behavior at Work",
+    "Destruction of Property",
+    "Insubordination",
+    "Record Keeping",
+    "Safety and Security",
+    "Other",
+  ];
+
+  const handlePolicyTypeChange = (value: string) => {
+    setPolicyType(value);
+    setDescription(""); // Reset description when policy type changes
+    setOtherDescription(""); // Reset other description
+  };
+
+  const handleDescriptionChange = (value: string) => {
+    setDescription(value);
+  };
 
   return (
     <div className="p-6">
@@ -87,44 +109,6 @@ const Nte: React.FC = () => {
             <div className="space-y-4 max-w-xl mx-auto px-4">
               <div>
                 <label
-                  htmlFor="inputEmployeeName"
-                  className="block text-sm font-medium text-gray-800"
-                >
-                  Employee Name:
-                </label>
-                <Input
-                  id="inputEmployeeName"
-                  name="inputEmployeeName"
-                  placeholder="Termu"
-                />
-              </div>
-
-              <div>
-                <label
-                  htmlFor="incidentReportTracking"
-                  className="block text-sm font-medium text-gray-800"
-                >
-                  Incident Report Tracking Number:
-                </label>
-                <Input
-                  id="incidentReportTracking"
-                  name="incidentReportTracking"
-                  placeholder=""
-                />
-              </div>
-
-              <div>
-                <label
-                  htmlFor="trackingNumber"
-                  className="block text-sm font-medium text-gray-800"
-                >
-                  Tracking Number:
-                </label>
-                <Input id="trackingNumber" className="bg-gray-50" />
-              </div>
-
-              <div>
-                <label
                   htmlFor="employeeName"
                   className="block text-sm font-medium text-gray-800"
                 >
@@ -135,66 +119,91 @@ const Nte: React.FC = () => {
 
               <div>
                 <label
-                  htmlFor="immediateSupervisor"
+                  htmlFor="position"
                   className="block text-sm font-medium text-gray-800"
                 >
-                  Immediate Supervisor:
+                  Position:
                 </label>
-                <Input id="immediateSupervisor" className="bg-gray-50" />
+                <Input id="position" className="bg-gray-50" />
               </div>
 
               <div>
                 <label
-                  htmlFor="firstLevelManager"
+                  htmlFor="issued by"
                   className="block text-sm font-medium text-gray-800"
                 >
-                  1st Level Manager:
+                  Issued by:
                 </label>
-                <Input id="firstLevelManager" className="bg-gray-50" />
+                <Input id="issued by" className="bg-gray-50" />
               </div>
 
               <div>
                 <label className="block text-sm font-medium text-gray-800">
-                  POLICY TYPE:
+                  Policy Type:
                 </label>
-                <Select>
+                <Select
+                  value={policyType}
+                  onValueChange={handlePolicyTypeChange}
+                >
                   <SelectTrigger className="w-full">
                     <SelectValue placeholder="Select policy type" />
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="attendance">Attendance</SelectItem>
+                    <SelectItem value="cocd">
+                      Code of Conduct and Discipline
+                    </SelectItem>
                   </SelectContent>
                 </Select>
               </div>
 
-              <div>
-                <label className="block text-sm font-medium text-gray-800">
-                  DESCRIPTION:
-                </label>
-                <Select>
-                  <SelectTrigger className="w-full">
-                    <SelectValue placeholder="Select description" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {descriptions.map((desc) => (
-                      <SelectItem key={desc} value={desc.toLowerCase()}>
-                        {desc}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </div>
+              {policyType && (
+                <div>
+                  <label className="block text-sm font-medium text-gray-800">
+                    Description:
+                  </label>
+                  <Select
+                    value={description}
+                    onValueChange={handleDescriptionChange}
+                  >
+                    <SelectTrigger className="w-full">
+                      <SelectValue placeholder="Select description" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {policyType === "attendance"
+                        ? attendanceDescriptions.map((desc) => (
+                            <SelectItem key={desc} value={desc.toLowerCase()}>
+                              {desc}
+                            </SelectItem>
+                          ))
+                        : cocdDescriptions.map((desc) => (
+                            <SelectItem key={desc} value={desc.toLowerCase()}>
+                              {desc}
+                            </SelectItem>
+                          ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+              )}
+
+              {/* Conditional 'Other' input field */}
+              {description === "other" && (
+                <div>
+                  <label className="block text-sm font-medium text-gray-800">
+                    Please Specify:
+                  </label>
+                  <Input
+                    value={otherDescription}
+                    onChange={(e) => setOtherDescription(e.target.value)}
+                    placeholder="Enter additional details"
+                    className="w-full placeholder:text-xs"
+                  />
+                </div>
+              )}
 
               <div>
                 <label className="block text-sm font-medium text-gray-800">
-                  OFFENSE:
-                </label>
-                <Input value="Verbal Warning" className="bg-gray-50" readOnly />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-800">
-                  INFRACTION DATE:
+                  Infraction date:
                 </label>
                 <div className="relative">
                   <Input type="date" className="w-full" />
@@ -204,11 +213,11 @@ const Nte: React.FC = () => {
 
               <div>
                 <label className="block text-sm font-medium text-gray-800">
-                  DETAILS:
+                  Details:
                 </label>
                 <textarea
-                  className="w-full min-h-[100px] p-2 border rounded-md"
-                  placeholder="Enter details here..."
+                  className="w-full min-h-[100px] p-2 border rounded-md placeholder:text-xs"
+                  placeholder="Description of Offense/s (Cite Specific Offense/s or underperformance under the code of Conduct and Discipline, including dates, and other necessary details) and amount of loss/damage,if any."
                 />
               </div>
 

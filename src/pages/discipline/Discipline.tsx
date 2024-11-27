@@ -24,7 +24,7 @@ const Discipline = ({ selectedDocument }: DisciplineProps) => {
       color: "bg-white",
     },
     {
-      title: "FORWARDED TO PO",
+      title: "FORWARDED TO HR",
       count: 6,
       icon: <Bell className="w-6 h-6 text-gray-400" />,
       color: "bg-white",

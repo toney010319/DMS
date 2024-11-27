@@ -14,8 +14,8 @@ const Faqs = ({ selectedDocument }: FaqsProps) => {
   console.log(selectedDocument);
   return (
     <div className="flex-1 overflow-y-auto">
-      <div className="p-6">
-        <div className="text-2xl text-gray-600 mb-6">
+      <div className="px-6 py-8">
+        <div className="text-2xl text-gray-600 mb-6 text-center">
           FREQUENTLY ASKED QUESTIONS (FAQs)
         </div>
 
@@ -28,15 +28,15 @@ const Faqs = ({ selectedDocument }: FaqsProps) => {
             value="item-1"
             className="rounded-md overflow-hidden bg-gray-100"
           >
-            <AccordionTrigger className="px-6 py-4 hover:no-underline hover:bg-gray-50 border-l-4 border-y-2 border-l-red-500">
-              <div className="flex gap-4 text-left font-medium text-base">
+            <AccordionTrigger className="px-8 py-4 hover:no-underline hover:bg-gray-50 border-l-4 border-y-2 border-l-red-500">
+              <div className="flex gap-4 text-center font-medium text-base">
                 <span className="text-red-500">Q.</span>
                 <span className="text-gray-900">
                   What will happen to the previously issued NTEs and CANs?
                 </span>
               </div>
             </AccordionTrigger>
-            <AccordionContent className="px-6 py-4 bg-white border-l-4 border-b-2 border-l-black">
+            <AccordionContent className="px-8 py-4 bg-white border-l-4 border-b-2 border-l-black">
               <div className="flex gap-4 font-medium text-sm">
                 <span className="text-gray-600">A.</span>
                 <span className="text-gray-600">
@@ -50,8 +50,8 @@ const Faqs = ({ selectedDocument }: FaqsProps) => {
             value="item-2"
             className="rounded-md overflow-hidden bg-gray-100"
           >
-            <AccordionTrigger className="px-6 py-4 hover:no-underline hover:bg-gray-50 border-l-4 border-y-2 border-l-red-500">
-              <div className="flex gap-4 text-left font-medium text-base">
+            <AccordionTrigger className="px-8 py-4 hover:no-underline hover:bg-gray-50 border-l-4 border-y-2 border-l-red-500">
+              <div className="flex gap-4 text-center font-medium text-base">
                 <span className="text-red-500">Q.</span>
                 <span className="text-gray-900">
                   Will the tool be able to issue the next corrective action to a
@@ -60,7 +60,7 @@ const Faqs = ({ selectedDocument }: FaqsProps) => {
                 </span>
               </div>
             </AccordionTrigger>
-            <AccordionContent className="px-6 py-4 bg-white border-l-4 border-b-2 border-l-black text-center">
+            <AccordionContent className="px-8 py-4 bg-white border-l-4 border-b-2 border-l-black">
               <div className="flex gap-4 font-medium text-sm">
                 <span className="text-gray-600">A.</span>
                 <span className="text-gray-600">
@@ -76,8 +76,8 @@ const Faqs = ({ selectedDocument }: FaqsProps) => {
             value="item-3"
             className="rounded-md overflow-hidden bg-gray-100"
           >
-            <AccordionTrigger className="px-6 py-4 hover:no-underline hover:bg-gray-50 border-l-4 border-y-2 border-l-red-500">
-              <div className="flex gap-4 text-left font-medium text-base">
+            <AccordionTrigger className="px-8 py-4 hover:no-underline hover:bg-gray-50 border-l-4 border-y-2 border-l-red-500">
+              <div className="flex gap-4 text-center font-medium text-base">
                 <span className="text-red-500">Q.</span>
                 <span className="text-gray-900">
                   Can the supervisor still check the previously issued NTEs even
@@ -86,7 +86,7 @@ const Faqs = ({ selectedDocument }: FaqsProps) => {
                 </span>
               </div>
             </AccordionTrigger>
-            <AccordionContent className="px-6 py-4 bg-white border-l-4 border-b-2 border-l-black">
+            <AccordionContent className="px-8 py-4 bg-white border-l-4 border-b-2 border-l-black">
               <div className="flex gap-4 font-medium text-sm">
                 <span className="text-gray-600">A.</span>
                 <span className="text-gray-600">
