@@ -6,14 +6,14 @@ import React from "react";
 
 const NoticeToExplain: React.FC = () => {
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-50">
-      <Card className="w-[800px] max-h-[90vh] flex flex-col">
+    <div className="flex items-center justify-center min-h-screen bg-gray-50 py-8">
+      <Card className="w-[800px] flex flex-col ">
         <CardHeader className="bg-blue-500 text-white py-4 px-6 rounded-t sticky top-0 z-10">
           <CardTitle className="text-2xl font-bold">
             NOTICE TO EXPLAIN
           </CardTitle>
         </CardHeader>
-        <CardContent className="px-8 pb-8 pt-4 space-y-6 overflow-y-auto">
+        <CardContent className="px-8 pb-8 pt-48 space-y-6">
           <p className="mb-4 text-gray-700 text-base">
             This Notice to Explain is issued to inform an employee of an alleged
             misconduct or performance issue, providing them an opportunity to
